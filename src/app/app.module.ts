@@ -15,6 +15,7 @@ import {
 } from '@angular/material/dialog';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { MatCardModule } from '@angular/material/card';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, UserRegistrationFormComponent],
@@ -32,7 +33,7 @@ import { MatCardModule } from '@angular/material/card';
     MatDialogActions,
     MatDialogClose,
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
