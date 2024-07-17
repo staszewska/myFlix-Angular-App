@@ -16,9 +16,10 @@ import {
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { MatCardModule } from '@angular/material/card';
 import { provideHttpClient } from '@angular/common/http';
+import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 
 @NgModule({
-  declarations: [AppComponent, UserRegistrationFormComponent],
+  declarations: [AppComponent, UserRegistrationFormComponent, UserLoginFormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
