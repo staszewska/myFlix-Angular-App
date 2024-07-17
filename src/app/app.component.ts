@@ -15,8 +15,7 @@ export class AppComponent {
   openUserRegistrationDialog(): void {
     const dialogRef = this.dialog.open(UserRegistrationFormComponent, {
       // Assigning the dialog a width
-      width: '280px',
-      height: '600px',
+      width: '350px',
     });
 
     dialogRef.afterClosed().subscribe(() => {
@@ -27,8 +26,7 @@ export class AppComponent {
   openUserLoginDialog(): void {
     const dialogRef = this.dialog.open(UserLoginFormComponent, {
       // Assigning the dialog a width
-      width: '280px',
-      height: '600px',
+      width: '350px',
     });
 
     dialogRef.afterClosed().subscribe(() => {
