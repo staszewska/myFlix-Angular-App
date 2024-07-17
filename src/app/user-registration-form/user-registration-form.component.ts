@@ -9,7 +9,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   styleUrl: './user-registration-form.component.scss',
 })
 export class UserRegistrationFormComponent {
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
+  @Input() userData = { Name: '', Password: '', Email: '', Birthday: '' };
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -25,11 +25,13 @@ export class UserRegistrationFormComponent {
       (result) => {
         // Logic for a successful user registration goes here! (To be implemented)
         this.dialogRef.close(); // This will close the modal on success!
+        console.log(result);
         this.snackBar.open(result, 'OK', {
           duration: 2000,
         });
       },
       (result) => {
+        console.log(result);
         this.snackBar.open(result, 'OK', {
           duration: 2000,
         });
