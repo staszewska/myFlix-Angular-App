@@ -18,7 +18,7 @@ export class FetchApiDataService {
   // User registration; this method sends user details to the server to register a user
 
   public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
+    console.log('Registering user with details: ', userDetails);
     //sends a POST request to the server with the user details
     return this.http
       .post(apiUrl + 'users', userDetails)
@@ -180,10 +180,13 @@ export class FetchApiDataService {
 
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
+      //client-side or network error
       console.error('Some error occurred:', error.error.message);
     } else {
+      //backend retuned an unsuccessful response code
       console.error(
-        'Error status code ${error.status}, ' + 'Error body is: ${error.error}'
+        `Error status code ${error.status}`,
+        `Error body is: ${error.error}`
       );
     }
     return throwError('Something bad happened; please try again later.');
