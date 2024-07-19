@@ -1,0 +1,54 @@
+$primary-color: #007bff;
+$button-padding: 10px 20px;
+$button-margin: 0 10px 0 0;
+$button-font-size: 16px;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-page {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    color: $primary-color;
+    margin-bottom: 20px;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+
+    button {
+      background-color: $primary-color;
+      color: #ffffff;
+      border: none;
+      padding: $button-padding;
+      margin: $button-margin;
+      font-size: $button-font-size;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.5);
+      }
+    }
+  }
+}
