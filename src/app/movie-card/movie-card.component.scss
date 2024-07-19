@@ -1,0 +1,19 @@
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-item {
+  flex-basis: 350px;
+  margin: 8px;
+
+  mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.header {
+  height: 100px;
+}
