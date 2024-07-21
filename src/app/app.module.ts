@@ -17,7 +17,7 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { MatCardModule } from '@angular/material/card';
 import { provideHttpClient } from '@angular/common/http';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
-import { MovieCardComponent } from './movie-card/movie-card.component';
+import { MovieCardComponent } from './movie-card-list/movie-card-list.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { RouterModule, Routes } from '@angular/router';
 
