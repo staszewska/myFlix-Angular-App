@@ -28,6 +28,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { DirectorInfoComponent } from './director-info/director-info.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
+import { GenreInfoComponent } from './genre-info/genre-info.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     ProfileViewComponent,
     DirectorInfoComponent,
+    GenreInfoComponent,
   ],
   imports: [
     BrowserModule,
