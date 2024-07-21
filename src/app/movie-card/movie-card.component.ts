@@ -2,6 +2,7 @@ import { Component, Input, input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DirectorInfoComponent } from '../director-info/director-info.component';
 import { GenreInfoComponent } from '../genre-info/genre-info.component';
+import { SynopsisComponent } from '../synopsis/synopsis.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -34,6 +35,18 @@ export class MovieCardComponent {
     this.dialog.open(GenreInfoComponent, {
       width: '280px',
       data: { genre },
+    });
+  }
+
+  // function that will open the dialog when the synopsis button is clicked
+  openSynopsisDialog(movie: any): void {
+    // console.log(movie);
+    const synopsis = movie.Description;
+    console.log(synopsis);
+
+    this.dialog.open(SynopsisComponent, {
+      width: '280px',
+      data: { synopsis },
     });
   }
 }
