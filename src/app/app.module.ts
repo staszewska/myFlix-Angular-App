@@ -26,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { DirectorInfoComponent } from './director-info/director-info.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     MovieCardComponent,
     WelcomePageComponent,
     ProfileViewComponent,
+    DirectorInfoComponent,
   ],
   imports: [
     BrowserModule,
