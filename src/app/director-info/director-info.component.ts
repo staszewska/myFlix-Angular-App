@@ -14,19 +14,7 @@ export class DirectorInfoComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data
   ) {}
 
-  ngOnInit(): void {
-    // Call method to fetch director details using directorName
-    // this.getDirectorDetails(this.directorName);
-  }
-
-  //fetch director details
-  // getDirectorDetails(directorName: string): void {
-  //   this.fetchDirector.getDirector(directorName).subscribe((resp: any) => {
-  //     this.directorName = resp;
-  //     console.log('Director Details:', this.directorName);
-  //     return this.directorName;
-  //   });
-  // }
+  ngOnInit(): void {}
 
   closeDialog(): void {
     this.dialogRef.close();
