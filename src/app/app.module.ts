@@ -29,6 +29,7 @@ import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { DirectorInfoComponent } from './director-info/director-info.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { GenreInfoComponent } from './genre-info/genre-info.component';
+import { SynopsisComponent } from './synopsis/synopsis.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     ProfileViewComponent,
     DirectorInfoComponent,
     GenreInfoComponent,
+    SynopsisComponent,
   ],
   imports: [
     BrowserModule,
