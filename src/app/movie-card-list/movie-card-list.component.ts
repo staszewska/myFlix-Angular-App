@@ -1,33 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
-import { MatDialog } from '@angular/material/dialog';
-import { DirectorInfoComponent } from '../director-info/director-info.component';
 
 @Component({
-  selector: 'app-movie-card',
-  templateUrl: './movie-card.component.html',
-  styleUrl: './movie-card.component.scss',
+  selector: 'app-movie-card-list',
+  templateUrl: './movie-card-list.component.html',
+  styleUrl: './movie-card-list.component.scss',
 })
-export class MovieCardComponent {
+export class MovieCardListComponent {
   //movies returned from the API
   movies: any[] = [];
 
-  constructor(
-    public fetchApiData: FetchApiDataService,
-    public dialog: MatDialog
-  ) {}
-
-  // function that will open the dialog when the director button is clicked
-  openDirectorInfoDialog(movie: any): void {
-    // console.log(movie);
-    const director = movie.Director;
-    console.log(director);
-
-    this.dialog.open(DirectorInfoComponent, {
-      width: '280px',
-      data: { director },
-    });
-  }
+  constructor(public fetchApiData: FetchApiDataService) {}
 
   ngOnInit(): void {
     this.getMovies();

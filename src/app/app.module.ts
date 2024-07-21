@@ -17,7 +17,7 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { MatCardModule } from '@angular/material/card';
 import { provideHttpClient } from '@angular/common/http';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
-import { MovieCardComponent } from './movie-card-list/movie-card-list.component';
+import { MovieCardListComponent } from './movie-card-list/movie-card-list.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -27,10 +27,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { DirectorInfoComponent } from './director-info/director-info.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
-  { path: 'movies', component: MovieCardComponent },
+  { path: 'movies', component: MovieCardListComponent },
   { path: 'profile', component: ProfileViewComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'prefix' },
 ];
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
     AppComponent,
     UserRegistrationFormComponent,
     UserLoginFormComponent,
+    MovieCardListComponent,
     MovieCardComponent,
     WelcomePageComponent,
     ProfileViewComponent,
