@@ -1,6 +1,7 @@
 import { Component, Input, input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DirectorInfoComponent } from '../director-info/director-info.component';
+import { GenreInfoComponent } from '../genre-info/genre-info.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -21,6 +22,18 @@ export class MovieCardComponent {
     this.dialog.open(DirectorInfoComponent, {
       width: '280px',
       data: { director },
+    });
+  }
+
+  // function that will open the dialog when the genre button is clicked
+  openGenreInfoDialog(movie: any): void {
+    // console.log(movie);
+    const genre = movie.Genre;
+    console.log(genre);
+
+    this.dialog.open(GenreInfoComponent, {
+      width: '280px',
+      data: { genre },
     });
   }
 }
