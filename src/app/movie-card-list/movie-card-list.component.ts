@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card-list',
@@ -9,8 +10,12 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 export class MovieCardListComponent {
   //movies returned from the API
   movies: any[] = [];
+  // router: any;
 
-  constructor(public fetchApiData: FetchApiDataService) {}
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getMovies();
@@ -25,5 +30,10 @@ export class MovieCardListComponent {
       console.log(this.movies);
       // return this.movies;
     });
+  }
+
+  goToProfile(): void {
+    this.router.navigate(['/profile']);
+    console.log('profile was clicked');
   }
 }
