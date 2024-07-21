@@ -99,7 +99,7 @@ export class FetchApiDataService {
   getUser(userId: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + userId, {
+      .get(apiUrl + 'users/' + userId, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -113,7 +113,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     return this.http
-      .get(apiUrl + 'users/' + user.Username, {
+      .get(apiUrl + 'users/' + user.Name, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -127,7 +127,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     return this.http
-      .post(apiUrl + 'users/' + user.Username + '/movies/' + movieId, {
+      .post(apiUrl + 'users/' + user.Name + '/movies/' + movieId, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
