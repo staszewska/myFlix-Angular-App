@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-view',
@@ -10,7 +11,10 @@ export class ProfileViewComponent {
   favoriteMovies: any[] = [];
   filteredFavoriteMovies = [];
 
-  constructor(public fetchApiData: FetchApiDataService) {}
+  constructor(
+    public fetchApiData: FetchApiDataService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getFavoriteMovies();
@@ -43,5 +47,9 @@ export class ProfileViewComponent {
 
       // console.log(resp);
     });
+  }
+
+  backToMovies(): void {
+    this.router.navigate(['/movies']);
   }
 }
