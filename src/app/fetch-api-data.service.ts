@@ -156,8 +156,15 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     //the URL for the PUT request: API URL ("apiUrl"), the string "users" and the Username property from "userDetails object";
     //the "userDetails" object is sent as the request body
+    const userId = user._id;
+    console.log(userId);
+
+    userDetails['_id'] = userId;
+
+    console.log(userDetails);
+
     return this.http
-      .put(apiUrl + 'users/' + userDetails.Username, userDetails, {
+      .put(apiUrl + 'users/' + userDetails.Name, userDetails, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
