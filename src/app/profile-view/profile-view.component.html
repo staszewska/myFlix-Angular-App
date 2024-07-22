@@ -15,70 +15,93 @@
   <span class="example-spacer"></span>
 </mat-toolbar>
 
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>User Profile</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>User Profile</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
       <mat-form-field style="margin-right: 10px">
-        <label>Username</label>
+        <label for="name">Username</label>
         <input
           matInput
+          formControlName="Name"
           placeholder="Username"
           type="text"
           name="Username"
           required
         />
       </mat-form-field>
+
       <mat-form-field style="margin-right: 10px">
-        <label>Password</label>
+        <label for="password">Password</label>
         <input
           matInput
+          formControlName="Password"
           type="password"
           placeholder="Password"
           name="Password"
           required
         />
       </mat-form-field>
+
       <mat-form-field style="margin-right: 10px">
-        <label>Email</label>
+        <label for="email">Email</label>
         <input
           matInput
+          formControlName="Email"
           type="email"
           placeholder="Email"
           name="Email"
           required
         />
       </mat-form-field>
+
       <mat-form-field style="margin-right: 10px">
-        <label>Birthday</label>
-        <input matInput type="date" placeholder="Birthday" name="Birthday" />
+        <label for="birthday">Birthday</label>
+        <input
+          formControlName="Birthday"
+          matInput
+          type="date"
+          placeholder="Birthday"
+          name="Birthday"
+        />
       </mat-form-field>
-    </form>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary" style="margin-right: 10px">
-      Update profile
-    </button>
+    </mat-card-content>
 
-    <button
-      mat-raised-button
-      (click)="backToMovies()"
-      color="primary"
-      style="margin-right: 10px"
-    >
-      Back to Movies
-    </button>
-  </mat-card-actions>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        style="margin-right: 10px"
+        class="button"
+        type="submit"
+      >
+        Update profile
+      </button>
 
-  <mat-card-title>Favorite Movies</mat-card-title>
-  <mat-card-content>
-    <div class="movie-container">
-      <div class="movie-item" *ngFor="let movie of filteredFavoriteMovies">
-        <app-movie-card [movie]="movie"></app-movie-card>
-        <div style="display: flex"></div>
+      <button
+        mat-raised-button
+        (click)="backToMovies()"
+        color="primary"
+        style="margin-right: 10px"
+      >
+        Back to Movies
+      </button>
+    </mat-card-actions>
+
+    <mat-card-title>Favorite Movies</mat-card-title>
+    <mat-card-content>
+      <div class="movie-container">
+        <div class="movie-item" *ngFor="let movie of filteredFavoriteMovies">
+          <app-movie-card
+            (movieRemoved)="onMovieRemoved(movie._id)"
+            [movie]="movie"
+          ></app-movie-card>
+          <div style="display: flex"></div>
+        </div>
       </div>
-    </div>
-  </mat-card-content>
-</mat-card>
+    </mat-card-content>
+  </mat-card>
+</form>
