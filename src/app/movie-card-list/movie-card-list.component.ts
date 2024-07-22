@@ -36,4 +36,9 @@ export class MovieCardListComponent {
     this.router.navigate(['/profile']);
     console.log('profile was clicked');
   }
+
+  logOut(): void {
+    this.router.navigate(['welcome']);
+    localStorage.removeItem('user');
+  }
 }
