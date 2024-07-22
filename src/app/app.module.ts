@@ -30,6 +30,7 @@ import { DirectorInfoComponent } from './director-info/director-info.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { GenreInfoComponent } from './genre-info/genre-info.component';
 import { SynopsisComponent } from './synopsis/synopsis.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    ReactiveFormsModule,
   ],
   providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],
