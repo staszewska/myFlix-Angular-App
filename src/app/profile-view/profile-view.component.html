@@ -62,7 +62,12 @@
       Update profile
     </button>
 
-    <button mat-raised-button color="primary" style="margin-right: 10px">
+    <button
+      mat-raised-button
+      (click)="backToMovies()"
+      color="primary"
+      style="margin-right: 10px"
+    >
       Back to Movies
     </button>
   </mat-card-actions>
@@ -72,11 +77,7 @@
     <div class="movie-container">
       <div class="movie-item" *ngFor="let movie of filteredFavoriteMovies">
         <app-movie-card [movie]="movie"></app-movie-card>
-        <div style="display: flex">
-          <button mat-raised-button color="primary" style="margin-right: 10px">
-            Remove from favorites
-          </button>
-        </div>
+        <div style="display: flex"></div>
       </div>
     </div>
   </mat-card-content>
