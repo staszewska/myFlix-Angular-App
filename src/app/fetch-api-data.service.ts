@@ -8,6 +8,7 @@ import { catchError, map, Observable, throwError } from 'rxjs';
 
 //API URL that provides the data for the client app
 const apiUrl = 'https://movies-api-ms-b2173cbfa01b.herokuapp.com/';
+// const apiUrl = 'http://localhost:8080/';
 
 @Injectable({
   providedIn: 'root',
@@ -128,7 +129,7 @@ export class FetchApiDataService {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     console.log(user);
     return this.http
-      .put(apiUrl + 'users/' + user.Name + '/movies/' + movieId, {
+      .put(apiUrl + 'users/' + user.Name + '/movies/' + movieId, null, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
