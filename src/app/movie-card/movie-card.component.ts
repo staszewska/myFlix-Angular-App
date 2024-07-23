@@ -15,12 +15,27 @@ export class MovieCardComponent {
   @Input({ required: true }) movie!: any;
   //emit an event the the movie is removed
   @Output() movieRemoved = new EventEmitter<any>();
-  favoriteMovies: any[] = [];
+
+  favoriteMoviesIds: any[] = [];
+  isFavorite = false;
 
   constructor(
     public dialog: MatDialog,
     private fetchApiData: FetchApiDataService
   ) {}
+
+  //this ensure that when the component is rendered,
+  //it has all the necessary data to correctly display the favorite status
+  ngOnInit(): void {
+    //fetching favorite movies from local storage
+    this.favoriteMoviesIds = JSON.parse(
+      localStorage.getItem('user') || '{}'
+    ).favoriteMovies;
+    //checking if the current movie's ID is included in the list
+    this.isFavorite = this.favoriteMoviesIds.includes(this.movie._id);
+
+    console.log('Is Favorite movie?', this.movie._id, this.isFavorite);
+  }
 
   // function that will open the dialog when the director button is clicked
   openDirectorInfoDialog(movie: any): void {
@@ -62,13 +77,12 @@ export class MovieCardComponent {
   addToFavorites(movieId: any): void {
     console.log(movieId);
     this.fetchApiData.addFavoriteMovie(movieId).subscribe((response) => {
-      //find() searches through the array and returns the first element that satisfies the condition
-      // this.favoriteMovies.push(
-      //   this.movies.find((movie) => movie.id === movieId)
-      // );
-
-      console.log('Movie added to favorites');
-      console.log('After adding movie successfully', response);
+      this.isFavorite = true;
+      const userFromLocalStorage = JSON.parse(
+        localStorage.getItem('user') || '{}'
+      );
+      userFromLocalStorage.favoriteMovies.push(movieId);
+      localStorage.setItem('user', JSON.stringify(userFromLocalStorage));
     });
   }
 
@@ -76,7 +90,15 @@ export class MovieCardComponent {
   removeFromFavorites(movieId: any): void {
     this.fetchApiData.deleteFavoriteMovie(movieId).subscribe((response) => {
       this.movieRemoved.emit(movieId);
-      console.log('Movie deleted', response);
+
+      this.isFavorite = false;
+      const userFromLocalStorage = JSON.parse(
+        localStorage.getItem('user') || '{}'
+      );
+
+      userFromLocalStorage.favoriteMovies =
+        userFromLocalStorage.favoriteMovies.filter((id: any) => id !== movieId);
+      localStorage.setItem('user', JSON.stringify(userFromLocalStorage));
     });
   }
 }
