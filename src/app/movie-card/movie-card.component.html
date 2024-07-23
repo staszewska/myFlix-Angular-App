@@ -17,7 +17,11 @@
     <button mat-button (click)="openSynopsisDialog(movie)" color="primary">
       Synopsis
     </button>
+
+    @if (!isFavorite) {
     <mat-icon (click)="addToFavorites(movie._id)">favorite_border</mat-icon>
+    } @else {
     <mat-icon (click)="removeFromFavorites(movie._id)">heart_broken</mat-icon>
+    }
   </mat-card-actions>
 </mat-card>
