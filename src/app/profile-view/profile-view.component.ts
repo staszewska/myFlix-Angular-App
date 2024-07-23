@@ -87,4 +87,9 @@ export class ProfileViewComponent {
   backToMovies(): void {
     this.router.navigate(['/movies']);
   }
+
+  logOut(): void {
+    this.router.navigate(['welcome']);
+    localStorage.removeItem('user');
+  }
 }
