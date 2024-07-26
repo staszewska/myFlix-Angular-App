@@ -8,12 +8,18 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrl: './synopsis.component.scss',
 })
 export class SynopsisComponent implements OnInit {
+  /**
+   * Creates an instance of SynopsisComponent.
+   * @param dialogRef
+   * @param fetchSynopsis
+   * @param data
+   */
   constructor(
     public dialogRef: MatDialogRef<SynopsisComponent>,
     public fetchSynopsis: FetchApiDataService,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
-    console.log(data);
+    // console.log(data);
   }
 
   ngOnInit(): void {}

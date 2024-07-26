@@ -28,7 +28,9 @@ export class UserLoginFormComponent {
 
   ngOnInit(): void {}
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * This is the function responsible for sending the form inputs to the backend
+   */
   logInUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       (result) => {
@@ -38,7 +40,7 @@ export class UserLoginFormComponent {
           duration: 2000,
         });
 
-        console.log('Success');
+        // console.log('Success');
 
         localStorage.setItem('user', JSON.stringify(result.user));
         localStorage.setItem('token', result.token);

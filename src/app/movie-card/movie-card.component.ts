@@ -24,8 +24,10 @@ export class MovieCardComponent {
     private fetchApiData: FetchApiDataService
   ) {}
 
-  //this ensure that when the component is rendered,
-  //it has all the necessary data to correctly display the favorite status
+  /**
+   * this ensure that when the component is rendered,
+   * it has all the necessary data to correctly display the favorite status
+   */
   ngOnInit(): void {
     //fetching favorite movies from local storage
     this.favoriteMoviesIds = JSON.parse(
@@ -37,7 +39,10 @@ export class MovieCardComponent {
     console.log('Is Favorite movie?', this.movie._id, this.isFavorite);
   }
 
-  // function that will open the dialog when the director button is clicked
+  /**
+   * opens the dialog when the director button is clicked
+   * @param movie
+   */
   openDirectorInfoDialog(movie: any): void {
     // console.log(movie);
     const director = movie.Director;
@@ -49,7 +54,10 @@ export class MovieCardComponent {
     });
   }
 
-  // function that will open the dialog when the genre button is clicked
+  /**
+   * opens the dialog when the genre button is clicked
+   * @param movie
+   */
   openGenreInfoDialog(movie: any): void {
     // console.log(movie);
     const genre = movie.Genre;
@@ -61,11 +69,14 @@ export class MovieCardComponent {
     });
   }
 
-  // function that will open the dialog when the synopsis button is clicked
+  /**
+   * open the dialog when the synopsis button is clicked
+   * @param movie
+   */
   openSynopsisDialog(movie: any): void {
     // console.log(movie);
     const synopsis = movie.Description;
-    console.log(synopsis);
+    // console.log(synopsis);
 
     this.dialog.open(SynopsisComponent, {
       width: '280px',
@@ -73,7 +84,10 @@ export class MovieCardComponent {
     });
   }
 
-  //function that will add a movie to list of favorite movies
+  /**
+   * adds a movie to list of favorite movies
+   * @param movieId
+   */
   addToFavorites(movieId: any): void {
     console.log(movieId);
     this.fetchApiData.addFavoriteMovie(movieId).subscribe((response) => {
@@ -86,7 +100,10 @@ export class MovieCardComponent {
     });
   }
 
-  //function that will remove a movie from the list of favorite movies
+  /**
+   * remove a movie from the list of favorite movies
+   * @param movieId
+   */
   removeFromFavorites(movieId: any): void {
     this.fetchApiData.deleteFavoriteMovie(movieId).subscribe((response) => {
       this.movieRemoved.emit(movieId);

@@ -19,7 +19,9 @@ export class UserRegistrationFormComponent {
 
   ngOnInit(): void {}
 
-  //function responsible for sending the form inputs to the backend
+  /**
+   * function responsible for sending the form inputs to the backend
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
       (result) => {

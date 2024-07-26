@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class MovieCardListComponent {
   //movies returned from the API
   movies: any[] = [];
-  // router: any;
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -21,22 +20,30 @@ export class MovieCardListComponent {
     this.getMovies();
   }
 
-  //function to get all movies from the API
+  /**
+   * function to get all movies from the API
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
       //save all the movies to local storage
       localStorage.setItem('movies', JSON.stringify(resp));
-      console.log(this.movies);
-      // return this.movies;
+      // console.log(this.movies);
     });
   }
 
+  /**
+   * Navigates to the user profile page
+   */
   goToProfile(): void {
     this.router.navigate(['/profile']);
-    console.log('profile was clicked');
+    // console.log('profile was clicked');
   }
 
+  /**
+   * Logs out the current user by navigating to the 'welcome' page
+   * and removing the 'user' item from local storage.
+   */
   logOut(): void {
     this.router.navigate(['welcome']);
     localStorage.removeItem('user');
